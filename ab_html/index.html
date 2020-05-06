@@ -1,0 +1,220 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Address Book | Welcome</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body>
+
+<div class="grid-container">
+    <div class="grid-x">
+        <div class="large-6 cell">
+            <h1>Ajax Address Book</h1>
+        </div>
+        <div class="grid-container">
+            <div class="large-6 cell">
+                <a class="add-btn button float-right small " data-open="myModal">Add Contact</a>
+                <div id="myModal" class="reveal" data-reveal>
+                    <h2>Add Contact</h2>
+                    <form>
+                        <div class="grid-x grid-margin-x">
+                            <div class="large-6 cell">
+                                <label>First Name
+                                    <input type="text" placeholder="Enter First Name">
+                                </label>
+                            </div>
+                            <div class="large-6 cell">
+                                <label>Last Name
+                                    <input type="text" placeholder="Enter Last Name">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="grid-x grid-margin-x">
+                            <div class="large-4 cell">
+                                <label>Email
+                                    <input type="email" placeholder="Enter Email Address">
+                                </label>
+                            </div>
+                            <div class="large-4 cell">
+                                <label>Phone Number
+                                    <input type="text" placeholder="Enter Phone Number">
+                                </label>
+                            </div>
+                            <div class="large-4 cell">
+                                <label>Contact Group
+                                    <select>
+                                        <option value="husker">Family</option>
+                                        <option value="starbuck">Friends</option>
+                                        <option value="hotdog">Business</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="grid-x grid-margin-x">
+                            <div class="cell large-6 ">
+                                <label>Address1
+                                    <input type="text" placeholder="Enter Address 1">
+                                </label>
+                            </div>
+                            <div class="cell large-6 ">
+                                <label>Address2
+                                    <input type="text" placeholder="Enter Address 2">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="grid-x grid-margin-x">
+                            <div class="large-4 cell">
+                                <label>City
+                                    <input type="text" placeholder="Enter City">
+                                </label>
+                            </div>
+                            <div class="large-4 cell">
+                                <label>State
+                                    <select>
+                                        <option value="BW">Baden-Wuerttemberg</option>
+                                        <option value="BY">Bavaria</option>
+                                        <option value="BE">Berlin</option>
+                                        <option value="BB">BrandenBurg</option>
+                                        <option value="HB">Bremen</option>
+                                        <option value="HH">Hamburg</option>
+                                        <option value="HE">Hesse</option>
+                                        <option value="NI">Lower-Saxony</option>
+                                        <option value="MV">Mecklenburg Vorpommern</option>
+                                        <option value="NW">North Rhine-Westphalia</option>
+                                        <option value="RP">Rhineland-Palatinate</option>
+                                        <option value="SL">Saarland</option>
+                                        <option value="SN">Saxony</option>
+                                        <option value="ST">Saxony-Anhalt</option>
+                                        <option value="SH">Schleswig-Holstein</option>
+                                        <option value="TH">Thuringia</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="large-4 cell">
+                                <label>Zipcode
+                                    <input type="text" placeholder="Enter Zipcode">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="grid-x grid-margin-x">
+                            <div class="large-12 cell">
+                                <label>Notes
+                                    <textarea placeholder="Enter Optional Notes"></textarea>
+                                </label>
+                            </div>
+                        </div>
+
+                        <input type="submit" class="add-btn button float-right small" value="Submit">
+                        <!--                    <a class="close-reveal-modal">&#215;</a>-->
+                        <button class="close-button" data-close aria-label="Close modal" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="grid-x grid-margin-x">
+            <div class="large-12 cell">
+                <table>
+                    <thead>
+                    <tr>
+                        <th width="200">Name</th>
+                        <th width="130">Phone</th>
+                        <th width="200">Email</th>
+                        <th width="250">Address</th>
+                        <th width="100">Group</th>
+                        <th width="150">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><a href="contact.html">Philp Witte</a></td>
+                        <td><a href="contact.html">0123 456 789</a></td>
+                        <td><a href="contact.html">downmaster13@googlemail.com</a></td>
+                        <td>
+                            <ul>
+                                <li>Ribbeckerstr. 38</li>
+                                <li>10315 Berlin</li>
+                            </ul>
+                        </td>
+                        <td>Family</td>
+                        <td>
+                            <div class="button-group">
+                                <a href="#" class="button tiny" data-open="myModal">Edit</a><br>
+                                <a href="#" class="button tiny alert" data-open="myModal">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="contact.html">Vancouver Bui</a></td>
+                        <td><a href="contact.html">0321 456 789</a></td>
+                        <td><a href="contact.html">vancouverB@googlemail.com</a></td>
+                        <td>
+                            <ul>
+                                <li>Otto-Suhr-Alle. 68</li>
+                                <li>10585 Berlin</li>
+                            </ul>
+                        </td>
+                        <td>Family</td>
+                        <td>
+                            <div class="button-group">
+                                <a href="#" class="button tiny" data-open="myModal">Edit</a><br>
+                                <a href="#" class="button tiny alert" data-open="myModal">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="contact.html">Andreas Tafa</a></td>
+                        <td><a href="contact.html">0123 654 789</a></td>
+                        <td><a href="contact.html">andreasT@web.de</a></td>
+                        <td>
+                            <ul>
+                                <li>Langhansstr. 36</li>
+                                <li>13086 Berlin</li>
+                            </ul>
+                        </td>
+                        <td>Family</td>
+                        <td>
+                            <div class="button-group">
+                                <a href="#" class="button tiny" data-open="myModal">Edit</a><br>
+                                <a href="#" class="button tiny alert" data-open="myModal">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="contact.html">John Doe</a></td>
+                        <td><a href="contact.html">0123 456 978</a></td>
+                        <td><a href="contact.html">johndoe@gmx.de</a></td>
+                        <td>
+                            <ul>
+                                <li>Mirbachplatz. 1</li>
+                                <li>13086 Berlin</li>
+                            </ul>
+                        </td>
+                        <td>Family</td>
+                        <td>
+                            <div class="button-group">
+                                <a href="#" class="button tiny" data-open="myModal">Edit</a><br>
+                                <a href="#" class="button tiny alert" data-open="myModal">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
