@@ -12,24 +12,32 @@ class Database{
 
     public function __construct(){
         //Set DSN
-        $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
-        //Set options
+        $dsn = 'mysql:host=' . $this->host . ';dbname=' .$this->dbname;
+//        echo $dsn;
+        //Set Options
         $options = array(
-            PD0::ATTR_PERSISTENT => true,
-            PD0::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            //checking to see if there is already an established connection to the database.
+            PDO::ATTR_PERSISTENT => true,
+            //throw an exception if an error occurs
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         );
         //Create a new PDO instance
         try {
             $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
+//            echo "Connected to database";
+            $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
+            echo "hello world1";
             $this->error = $e->getMessage();
         }
     }
 
+    //Prepare query
     public function query($query){
-        $this->stmt = $this->dbh->prepare($query);
+        $this->stmt= $this->dbh->prepare($query);
     }
 
+    //Bind inputs with the placeholders
     public function bind($param, $value, $type = null){
         if (is_null($type)) {
             switch (true) {
@@ -46,27 +54,38 @@ class Database{
                     $type = PDO::PARAM_STR;
             }
         }
-        $this->stmt->bindValue($param, $param, $type);
+        $this->stmt->bindValue($param, $value, $type);
+//        $this->stmt->bindParam($param, $value, $type);
     }
 
     public function execute(){
-        return $this->stmt->execute();
+        try {
+            return $this->stmt->execute();
+
+        } catch (PDOException $e){
+            echo "Error: " . $e->getMessage();
+        }
+//         return $this->stmt->execute();
     }
 
-    public function resultset(){
+    //Returns an array of the result set rows
+    pubLic function resultSet(){
         $this->execute();
         return $this->stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    //Returns a single record from the database
     public function single(){
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_OBJ);
     }
 
+    //Number of affected rows from delete, update, insert statement
     public function rowCount(){
         return $this->stmt->rowCount();
     }
 
+    //Last insert ID as String
     public function lastInsertId(){
         return $this->dbh->lastInsertId();
     }
@@ -81,5 +100,10 @@ class Database{
 
     public function cancelTransaction(){
         return $this->dbh->rollBack();
+    }
+
+    //Debug dump parameters
+    public function debugDumpParams(){
+        return $this->stmt->debugDumpParams();
     }
 }
