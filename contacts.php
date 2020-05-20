@@ -38,7 +38,7 @@ $contacts = $db->resultset();
                 <td><?php echo $contact->contact_group; ?></td>
                 <td>
                     <div class="button-group">
-                        <a class="add-btn button tiny" data-open="editModal<?php echo $contact->id; ?>" data-contact-id="<?php echo $contact->id; ?>" >Edit</a>
+                        <a class="edit-btn button tiny" data-open="editModal<?php echo $contact->id; ?>" data-contact-id="<?php echo $contact->id; ?>" >Edit</a>
                         <div id="editModal<?php echo $contact->id; ?>" dat-cid="<?php echo $contact->id; ?>" class="reveal" data-reveal>
 <!--                            <a class="add-btn button float-right small " data-open="addModal" >Add Contact</a>-->
 <!--                            <div id="addModal" class="reveal" data-reveal>-->
@@ -75,9 +75,9 @@ $contacts = $db->resultset();
                                     <div class="large-4 cell">
                                         <label>Contact Group
                                             <select name="contact_group">
-                                                <option value="Family" <?php if ($contact->group == 'Family'){echo 'selected';}?>>Family</option>
-                                                <option value="Friends" <?php if ($contact->group == 'Friends'){echo 'selected';}?>>Friends</option>
-                                                <option value="Business" <?php if ($contact->group == 'Business'){echo 'selected';}?>>Business</option>
+                                                <option value="Family" <?php if ($contact->contact_group == 'Family'){echo 'selected';}?>>Family</option>
+                                                <option value="Friends" <?php if ($contact->contact_group == 'Friends'){echo 'selected';}?>>Friends</option>
+                                                <option value="Business" <?php if ($contact->contact_group == 'Business'){echo 'selected';}?>>Business</option>
                                             </select>
                                         </label>
                                     </div>
@@ -137,7 +137,9 @@ $contacts = $db->resultset();
                                 <!--                    <a class="close-reveal-modal">&#215;</a>-->
                             </form>
 
-
+                            <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
 
 
 
